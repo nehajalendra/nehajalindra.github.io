@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neha | Digital Growth & AI Strategist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #ec4899;
+            --gray: #64748b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><circle cx="100" cy="100" r="100" fill="rgba(255,255,255,0.05)"/><circle cx="900" cy="400" r="150" fill="rgba(255,255,255,0.05)"/><circle cx="600" cy="200" r="80" fill="rgba(255,255,255,0.05)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .skill-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .projects-section {
+            background: var(--light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px;
+            position: relative;
+        }
+
+        .project-category {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .project-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .project-role {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .project-body {
+            padding: 30px;
+        }
+
+        .project-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: #e0e7ff;
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .client-list {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .client-list h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .client-list ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 8px;
+        }
+
+        .client-list li {
+            color: var(--gray);
+            font-size: 0.9rem;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .client-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .achievement-card h4 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .achievement-card p {
+            opacity: 0.95;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark) 0%, #334155 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #db2777;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--dark);
+        }
+
+        .footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .footer p {
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-stats {
+                gap: 30px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .client-list ul {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>NEHA</h1>
+            <p class="subtitle">Digital Growth & AI Strategist</p>
+            <p style="font-size: 1.1rem; opacity: 0.9;">Transforming brands through data-driven strategies, GenAI automation, and performance marketing excellence</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">2.5+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Clients Managed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">30%</span>
+                    <span class="stat-label">Cost Reduction</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">35%</span>
+                    <span class="stat-label">Engagement Growth</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Expertise Section -->
+    <section class="container">
+        <h2 class="section-title">Core Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">🤖</div>
+                <h3>GenAI & Marketing Automation</h3>
+                <p>Microsoft Copilot certified. Engineered AI-integrated workflows reducing operational costs by 30% and accelerating content production.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📊</div>
+                <h3>Analytics & Reporting</h3>
+                <p>Expert in creating comprehensive analytics reports using Power BI, GA4, and platform-native tools. Translating complex campaign data into actionable client insights and strategic recommendations.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🎯</div>
+                <h3>Multi-Client Management</h3>
+                <p>Proven track record managing 10+ concurrent clients across diverse industries. Expert in social media management, SEO optimization, website performance, content direction, and campaign execution.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">💡</div>
+                <h3>Performance Marketing</h3>
+                <p>Data-backed Meta and Google Ads strategies optimizing CPC by 20% while maintaining high-quality lead flow through rigorous A/B testing and audience segmentation.</p>
+            </div>
+        </div>
+
+        <div class="achievements">
+            <div class="achievement-card">
+                <h4>MICA Certified</h4>
+                <p>Advanced Digital Marketing & Communication (upGrad)</p>
+            </div>
+            <div class="achievement-card">
+                <h4>Master's Level</h4>
+                <p>Performance Marketing Certification (Skillcircle)</p>
+            </div>
+            <div class="achievement-card">
+                <h4>AI Specialist</h4>
+                <p>Microsoft Copilot Certified Professional</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Professional Experience & Projects</h2>
+            <div class="projects-grid">
+                <!-- Daiki Axis -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-category">Current Role - Industrial B2B</span>
+                        <h3>Daiki Axis India</h3>
+                        <p class="project-role">Digital Growth Strategist | May 2025 – Present</p>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Leading end-to-end digital growth strategies for industrial and hospitality business units. Integrated GenAI workflows for strategic research and automated content creation while developing centralized Power BI dashboards for executive-level campaign attribution and ROI tracking.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">GenAI Integration</span>
+                            <span class="tag">Power BI Dashboards</span>
+                            <span class="tag">B2B Strategy</span>
+                            <span class="tag">Lead Generation</span>
+                        </div>
+                        <a href="https://daikiaxis.in/" target="_blank" class="project-link">View Website →</a>
+                    </div>
+                </div>
+
+                <!-- GYK Marketers -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-category">Agency Leadership</span>
+                        <h3>GYK Marketers</h3>
+                        <p class="project-role">Senior Marketing Manager | Jan 2025 – May 2025</p>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Orchestrated integrated digital campaigns across SEO, PR, and social media for diverse client portfolio. Led cross-functional team of 5+ members ensuring timely execution and budget adherence for large-scale growth initiatives.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Campaign Management</span>
+                            <span class="tag">Team Leadership</span>
+                            <span class="tag">Client Relations</span>
+                            <span class="tag">Budget Management</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ColorTouch - Main Agency Role -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-category">Digital Marketing Agency</span>
+                        <h3>ColorTouch India</h3>
+                        <p class="project-role">Senior Manager – Social Media & SEO | Oct 2023 – Dec 2024</p>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            <strong>Agency Role:</strong> Managed complete digital marketing operations for 10+ diverse clients across jewelry, hospitality, travel, and technology sectors. Orchestrated end-to-end marketing lifecycle including social media strategy, SEO optimization, website performance enhancement, content direction for design teams, campaign execution, analytics tracking, and comprehensive monthly client reporting.
+                        </p>
+                        <p class="project-description">
+                            Achieved 35% organic engagement growth and 20% CPC optimization through data-driven strategies and rigorous A/B testing across all client accounts.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">10+ Client Management</span>
+                            <span class="tag">SEO & Website Optimization</span>
+                            <span class="tag">Social Media Strategy</span>
+                            <span class="tag">Analytics & Reporting</span>
+                            <span class="tag">Content Direction</span>
+                            <span class="tag">Campaign Execution</span>
+                            <span class="tag">Team Coordination</span>
+                        </div>
+                        <a href="https://colortouchindia.com/" target="_blank" class="project-link">View Agency Website →</a>
+                        
+                        <div class="client-list">
+                            <h4>Clients Managed at ColorTouch:</h4>
+                            <ul>
+                                <li>GoaPlans (Luxury Villas & Travel)</li>
+                                <li>Dhaanvi Jewellers (E-commerce)</li>
+                                <li>Shri Banaras Swarna Kala Kendra</li>
+                                <li>Radha Vallabh Jewellers</li>
+                                <li>Banaras Swarna Kala Kendra LLP</li>
+                                <li>MSM Computers (Technology)</li>
+                                <li>Dinner Cruise Party (Hospitality)</li>
+                                <li>All India Tour & Travels</li>
+                                <li>Villa in Goa (Real Estate)</li>
+                                <li>ColorTouch (Agency Marketing)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Client Projects from ColorTouch -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-category">Client Project - Hospitality</span>
+                        <h3>GoaPlans</h3>
+                        <p class="project-role">Digital Marketing Manager (via ColorTouch) | 2023-2024</p>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Developed and executed comprehensive digital marketing strategy for luxury villa rentals and travel experiences in Goa. Implemented targeted social media campaigns, technical SEO optimization, and performance marketing to drive bookings and brand awareness in competitive hospitality market.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Travel Marketing</span>
+                            <span class="tag">Social Media</span>
+                            <span class="tag">SEO</span>
+                            <span class="tag">Conversion Optimization</span>
+                        </div>
+                        <a href="https://goaplans.com/" target="_blank" class="project-link">View Website →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-category">Client Project - Luxury E-commerce</span>
+                        <h3>Dhaanvi Jewellers</h3>
+                        <p class="project-role">Digital Strategist (via ColorTouch) | 2023-2024</p>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Crafted premium digital presence for luxury jewelry brand combining social media storytelling with performance marketing. Managed brand positioning, content strategy, and paid campaigns to reach high-net-worth customers while maintaining brand luxury appeal.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Luxury Branding</span>
+                            <span class="tag">E-commerce Strategy</span>
+                            <span class="tag">Content Marketing</span>
+                            <span class="tag">Paid Advertising</span>
+                        </div>
+                        <a href="https://dhaanvijewellers.com/" target="_blank" class="project-link">View Website →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="project-category">Client Project - Jewelry Retail</span>
+                        <h3>Heritage Jewelry Brands</h3>
+                        <p class="project-role">Social Media & SEO Manager (via ColorTouch) | 2023-2024</p>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Managed digital marketing for multiple traditional jewelry retailers including Shri Banaras Swarna Kala Kendra, Radha Vallabh Jewellers, and Banaras Swarna Kala Kendra LLP. Developed cohesive social media presence, local SEO strategies, and content marketing to drive foot traffic and online inquiries.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Local SEO</span>
+                            <span class="tag">Social Media</span>
+                            <span class="tag">Multi-Brand Management</span>
+                            <span class="tag">Traditional Retail</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Let's Create Digital Success Together</h2>
+        <p>Open to exciting opportunities in digital marketing, performance marketing, and AI-driven growth strategies</p>
+        <div class="cta-buttons">
+            <a href="mailto:nehajalindra638@gmail.com" class="btn btn-primary">Get In Touch</a>
+            <a href="https://linkedin.com/in/neha-jalendra-740121287" target="_blank" class="btn btn-secondary">View LinkedIn</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="mailto:nehajalindra638@gmail.com" title="Email">📧</a>
+            <a href="https://linkedin.com/in/neha-jalendra-740121287" target="_blank" title="LinkedIn">💼</a>
+            <a href="tel:+917011688097" title="Phone">📱</a>
+        </div>
+        <p>© 2026 Neha | Digital Growth & AI Strategist</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">Faridabad, Haryana | Available for Remote & Hybrid Opportunities</p>
+    </footer>
+</body>
+</html>
