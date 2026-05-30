@@ -1,682 +1,927 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neha | Digital Growth & AI Strategist</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #6366f1;
-            --secondary: #8b5cf6;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --accent: #ec4899;
-            --gray: #64748b;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            overflow-x: hidden;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 100px 20px 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><circle cx="100" cy="100" r="100" fill="rgba(255,255,255,0.05)"/><circle cx="900" cy="400" r="150" fill="rgba(255,255,255,0.05)"/><circle cx="600" cy="200" r="80" fill="rgba(255,255,255,0.05)"/></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.4s backwards;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            text-align: center;
-            color: var(--dark);
-            position: relative;
-            padding-bottom: 20px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 2px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .skill-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
-            border-color: var(--primary);
-        }
-
-        .skill-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .skill-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        .skill-card p {
-            color: var(--gray);
-            line-height: 1.6;
-        }
-
-        .projects-section {
-            background: var(--light);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-
-        .project-header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 30px;
-            position: relative;
-        }
-
-        .project-category {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-bottom: 10px;
-        }
-
-        .project-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
-        }
-
-        .project-role {
-            opacity: 0.9;
-            font-size: 0.95rem;
-        }
-
-        .project-body {
-            padding: 30px;
-        }
-
-        .project-description {
-            color: var(--gray);
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .tag {
-            background: #e0e7ff;
-            color: var(--primary);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .project-link {
-            display: inline-block;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .project-link:hover {
-            color: var(--secondary);
-            transform: translateX(5px);
-        }
-
-        .client-list {
-            background: #f1f5f9;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 15px;
-        }
-
-        .client-list h4 {
-            color: var(--primary);
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-
-        .client-list ul {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 8px;
-        }
-
-        .client-list li {
-            color: var(--gray);
-            font-size: 0.9rem;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .client-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        .achievements {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .achievement-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-
-        .achievement-card h4 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .achievement-card p {
-            opacity: 0.95;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, var(--dark) 0%, #334155 100%);
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-            border: 2px solid transparent;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #db2777;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border-color: white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--dark);
-        }
-
-        .footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .footer p {
-            opacity: 0.8;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .hero-stats {
-                gap: 30px;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .client-list ul {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neha Jalendra | Digital Growth & AI Strategist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f8fc;
+      --bg-alt: #edf2f9;
+      --navy: #1e3a5f;
+      --navy-light: #2d5282;
+      --teal: #0891b2;
+      --teal-light: #e0f4f8;
+      --teal-mid: #cceef8;
+      --gold: #d97706;
+      --gold-light: #fef3c7;
+      --white: #ffffff;
+      --text: #1e293b;
+      --text-mid: #475569;
+      --text-light: #94a3b8;
+      --border: #dde4ed;
+      --shadow: 0 4px 24px rgba(26,47,74,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 2px; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(240,244,248,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 60px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 500; color: var(--navy); letter-spacing: 2px;
+    }
+    .nav-logo span { color: var(--teal); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--text-mid); text-decoration: none; transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #2c5282 0%, #2b6cb0 60%, #3182ce 100%);
+      display: flex; align-items: center;
+      padding: 120px 60px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(8,145,178,0.15) 0%, transparent 65%),
+                  radial-gradient(ellipse at 10% 90%, rgba(217,119,6,0.08) 0%, transparent 50%);
+    }
+    .hero-dots {
+      position: absolute; right: 60px; top: 50%; transform: translateY(-50%);
+      display: grid; grid-template-columns: repeat(8, 1fr); gap: 16px; opacity: 0.12;
+    }
+    .hero-dot { width: 4px; height: 4px; background: var(--teal); border-radius: 50%; }
+    .hero-content { position: relative; z-index: 2; max-width: 680px; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 28px;
+    }
+    .hero-tag-line { width: 36px; height: 1px; background: var(--teal); }
+    .hero-tag span { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 5.5vw, 72px);
+      font-weight: 400; line-height: 1.1; color: var(--white); margin-bottom: 24px;
+    }
+    .hero h1 .teal { color: #38bdf8; }
+    .hero h1 .gold { color: #fbbf24; }
+    .hero-desc {
+      font-size: 15px; color: rgba(255,255,255,0.7);
+      max-width: 520px; line-height: 1.9; margin-bottom: 44px;
+    }
+    .hero-stats {
+      display: inline-flex; border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px; overflow: hidden; margin-bottom: 40px;
+    }
+    .stat {
+      padding: 18px 28px; text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px; color: #38bdf8; line-height: 1; font-weight: 500;
+    }
+    .stat-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 5px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-teal {
+      background: var(--teal); color: var(--white);
+      padding: 13px 28px; border-radius: 6px;
+      text-decoration: none; font-size: 12px; font-weight: 500;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .btn-teal:hover { background: #0369a1; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(8,145,178,0.4); }
+    .btn-outline-white {
+      border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.85);
+      padding: 13px 28px; border-radius: 6px;
+      text-decoration: none; font-size: 12px;
+      letter-spacing: 1.5px; text-transform: uppercase; transition: all 0.3s;
+    }
+    .btn-outline-white:hover { border-color: #38bdf8; color: #38bdf8; }
+
+    /* SECTIONS */
+    section { padding: 80px 60px; }
+    .sec-label {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+    }
+    .sec-label-line { width: 28px; height: 2px; background: var(--teal); border-radius: 1px; }
+    .sec-label span { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); font-weight: 500; }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3vw, 40px); font-weight: 400;
+      color: var(--navy); margin-bottom: 48px; line-height: 1.2;
+    }
+
+    /* CERT BANNER */
+    .cert-banner {
+      background: #1e3a5f;
+      padding: 24px 60px;
+      display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+    }
+    .cert-banner-label {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: #fbbf24; white-space: nowrap; font-weight: 600;
+    }
+    .cert-banner-div { width: 1px; height: 20px; background: rgba(255,255,255,0.15); }
+    .cert-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .cert-pill {
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+      color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.12);
+      padding: 4px 10px; border-radius: 20px; transition: all 0.3s;
+    }
+    .cert-pill:hover { border-color: var(--teal); color: #38bdf8; }
+
+    /* EXPERTISE */
+    .expertise { background: var(--white); }
+    .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+    .expertise-card {
+      padding: 32px 24px; border: 1px solid var(--border);
+      border-radius: 8px; transition: all 0.3s; background: var(--white);
+      position: relative; overflow: hidden;
+    }
+    .expertise-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 3px; height: 0; background: var(--teal); transition: height 0.4s;
+    }
+    .expertise-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); border-color: var(--teal); }
+    .expertise-card:hover::before { height: 100%; }
+    .expertise-icon { font-size: 28px; margin-bottom: 16px; }
+    .expertise-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; color: var(--navy); margin-bottom: 10px;
+    }
+    .expertise-card p { font-size: 13px; color: var(--text-mid); line-height: 1.8; }
+
+    /* EXPERIENCE */
+    .experience { background: var(--bg); }
+    .exp-item {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px; padding: 40px; margin-bottom: 24px;
+      transition: box-shadow 0.3s;
+    }
+    .exp-item:hover { box-shadow: var(--shadow); }
+    .exp-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 12px;
+    }
+    .exp-type-badge {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--teal); border: 1px solid var(--teal);
+      padding: 3px 10px; border-radius: 20px; background: var(--teal-light);
+    }
+    .exp-company {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px; font-weight: 500; color: var(--navy); margin: 8px 0 4px;
+    }
+    .exp-role { font-size: 13px; color: var(--teal); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+    .exp-period { font-size: 12px; color: var(--text-light); }
+    .exp-link { font-size: 12px; color: var(--teal); text-decoration: none; transition: opacity 0.3s; }
+    .exp-link:hover { opacity: 0.7; }
+    .exp-divider { height: 1px; background: var(--border); margin: 20px 0; }
+    .exp-story {
+      font-size: 14px; color: var(--text-mid); line-height: 1.9;
+      margin-bottom: 20px; padding: 16px 20px;
+      background: var(--bg); border-radius: 6px;
+      border-left: 3px solid var(--teal);
+      font-style: italic;
+    }
+    .exp-highlights { margin-bottom: 20px; }
+    .exp-highlights h5 {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--text-light); margin-bottom: 12px;
+    }
+    .exp-highlight-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 10px 0; border-bottom: 1px solid var(--border);
+      font-size: 14px; color: var(--text); line-height: 1.7;
+    }
+    .exp-highlight-item:last-child { border-bottom: none; }
+    .exp-highlight-icon { color: var(--teal); font-size: 12px; margin-top: 5px; flex-shrink: 0; }
+    .exp-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+    .exp-tag {
+      font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+      background: var(--teal-light); color: var(--teal);
+      border: 1px solid var(--teal-mid); padding: 4px 12px; border-radius: 20px;
+    }
+
+    /* CLIENT LIST */
+    .client-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px; margin: 16px 0;
+    }
+    .client-card {
+      padding: 14px 16px; background: var(--bg);
+      border: 1px solid var(--border); border-radius: 8px;
+      transition: all 0.3s;
+    }
+    .client-card:hover { border-color: var(--teal); background: var(--teal-light); }
+    .client-name { font-size: 13px; font-weight: 500; color: var(--navy); }
+    .client-sector { font-size: 11px; color: var(--text-light); margin-top: 3px; }
+
+    /* CAMPAIGN CARD */
+    .campaign-card {
+      background: linear-gradient(135deg, #2c5282 0%, #2b6cb0 100%);
+      border-radius: 10px; padding: 32px; margin: 24px 0; color: var(--white);
+    }
+    .campaign-card-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 8px; flex-wrap: wrap; gap: 12px;
+    }
+    .campaign-badge {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      background: rgba(8,145,178,0.3); color: #38bdf8;
+      border: 1px solid rgba(56,189,248,0.3); padding: 4px 12px; border-radius: 20px;
+    }
+    .campaign-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; color: var(--white); margin-bottom: 4px;
+    }
+    .campaign-card p { font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
+    .campaign-metrics {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px;
+    }
+    .c-metric {
+      text-align: center; padding: 16px 8px;
+      background: rgba(255,255,255,0.06); border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .c-metric-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px; color: #38bdf8; font-weight: 500; line-height: 1;
+    }
+    .c-metric-label { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 6px; }
+    .campaign-note {
+      font-size: 12px; color: rgba(255,255,255,0.45);
+      text-align: center; padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .campaign-note strong { color: #fbbf24; }
+
+    /* CERTIFICATIONS */
+    .certifications { background: var(--white); }
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .cert-card {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 18px; border: 1px solid var(--border);
+      border-radius: 8px; transition: all 0.3s; background: var(--white);
+    }
+    .cert-card:hover { border-color: var(--teal); background: var(--teal-light); box-shadow: var(--shadow); }
+    .cert-logo {
+      width: 36px; height: 36px; border-radius: 6px;
+      background: linear-gradient(135deg, #4285F4, #34A853);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .cert-logo.ms { background: linear-gradient(135deg, #00a4ef, #7fba00); }
+    .cert-info {}
+    .cert-name { font-size: 13px; font-weight: 500; color: var(--navy); line-height: 1.4; }
+    .cert-issuer { font-size: 11px; color: var(--text-light); margin-top: 3px; }
+    .cert-date { font-size: 10px; color: var(--teal); margin-top: 4px; font-weight: 500; }
+
+    /* SKILLS */
+    .skills { background: var(--bg-alt); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .skill-group {
+      background: var(--white); padding: 24px;
+      border: 1px solid var(--border); border-radius: 8px;
+    }
+    .skill-group h4 {
+      font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--teal); font-weight: 600; margin-bottom: 14px;
+      padding-bottom: 10px; border-bottom: 2px solid var(--teal-light);
+    }
+    .skill-list { list-style: none; }
+    .skill-list li {
+      font-size: 13px; color: var(--text);
+      padding: 7px 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .skill-list li:last-child { border-bottom: none; }
+    .skill-list li::before { content: '›'; color: var(--teal); font-size: 16px; font-weight: 600; }
+
+    /* CONTACT */
+    .contact {
+      background: #1e3a5f;
+      text-align: center; padding: 80px 60px;
+    }
+    .contact .sec-label { justify-content: center; }
+    .contact .sec-title { color: var(--white); }
+    .contact-desc { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 36px; max-width: 440px; margin-left: auto; margin-right: auto; }
+    .contact-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .btn-outline-teal {
+      border: 1px solid rgba(56,189,248,0.35); color: #38bdf8;
+      padding: 13px 28px; border-radius: 6px;
+      text-decoration: none; font-size: 12px;
+      letter-spacing: 1.5px; text-transform: uppercase; transition: all 0.3s;
+    }
+    .btn-outline-teal:hover { background: rgba(56,189,248,0.1); }
+
+    footer {
+      background: #162d47;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center; padding: 20px;
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-content { animation: fadeUp 0.9s ease forwards; }
+
+    @media (max-width: 900px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 100px 20px 60px; }
+      section { padding: 60px 20px; }
+      .cert-banner { padding: 20px; }
+      .campaign-metrics { grid-template-columns: repeat(2, 1fr); }
+      .hero-stats { display: grid; grid-template-columns: repeat(2,1fr); width: 100%; }
+      .stat { border-right: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
+      .exp-item { padding: 24px; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>NEHA</h1>
-            <p class="subtitle">Digital Growth & AI Strategist</p>
-            <p style="font-size: 1.1rem; opacity: 0.9;">Transforming brands through data-driven strategies, GenAI automation, and performance marketing excellence</p>
-            
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number">2.5+</span>
-                    <span class="stat-label">Years Experience</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">10+</span>
-                    <span class="stat-label">Clients Managed</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">30%</span>
-                    <span class="stat-label">Cost Reduction</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">35%</span>
-                    <span class="stat-label">Engagement Growth</span>
-                </div>
-            </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Neha</div>
+    <ul class="nav-links">
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-dots">
+      <script>for(let i=0;i<64;i++) document.write('<div class="hero-dot"></div>')</script>
+    </div>
+    <div class="hero-content">
+      <div class="hero-tag">
+        <div class="hero-tag-line"></div>
+        <span>Digital Growth & AI Strategist</span>
+      </div>
+      <h1>
+        Turning <span class="teal">Data</span><br />
+        into <span class="gold">Growth.</span><br />
+        Strategy into Results.
+      </h1>
+      <p class="hero-desc">
+        Performance-driven digital marketer with Oct 2023 – Present · across agency, start-up, and MNC environments — specialising in AI-powered campaigns, B2B performance marketing, and cross-border digital strategy across Indian and Asian markets.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">2.7+</div>
+          <div class="stat-label">Years Experience</div>
         </div>
-    </section>
-
-    <!-- Core Expertise Section -->
-    <section class="container">
-        <h2 class="section-title">Core Expertise</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <div class="skill-icon">🤖</div>
-                <h3>GenAI & Marketing Automation</h3>
-                <p>Microsoft Copilot certified. Engineered AI-integrated workflows reducing operational costs by 30% and accelerating content production.</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">📊</div>
-                <h3>Analytics & Reporting</h3>
-                <p>Expert in creating comprehensive analytics reports using Power BI, GA4, and platform-native tools. Translating complex campaign data into actionable client insights and strategic recommendations.</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">🎯</div>
-                <h3>Multi-Client Management</h3>
-                <p>Proven track record managing 10+ concurrent clients across diverse industries. Expert in social media management, SEO optimization, website performance, content direction, and campaign execution.</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">💡</div>
-                <h3>Performance Marketing</h3>
-                <p>Data-backed Meta and Google Ads strategies optimizing CPC by 20% while maintaining high-quality lead flow through rigorous A/B testing and audience segmentation.</p>
-            </div>
+        <div class="stat">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Clients Managed</div>
         </div>
-
-        <div class="achievements">
-            <div class="achievement-card">
-                <h4>MICA Certified</h4>
-                <p>Advanced Digital Marketing & Communication (upGrad)</p>
-            </div>
-            <div class="achievement-card">
-                <h4>Master's Level</h4>
-                <p>Performance Marketing Certification (Skillcircle)</p>
-            </div>
-            <div class="achievement-card">
-                <h4>AI Specialist</h4>
-                <p>Microsoft Copilot Certified Professional</p>
-            </div>
+        <div class="stat">
+          <div class="stat-num">15</div>
+          <div class="stat-label">Google Certifications</div>
         </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects-section">
-        <div class="container">
-            <h2 class="section-title">Professional Experience & Projects</h2>
-            <div class="projects-grid">
-                <!-- Daiki Axis -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-category">Current Role - Industrial B2B</span>
-                        <h3>Daiki Axis India</h3>
-                        <p class="project-role">Digital Growth Strategist | May 2025 – Present</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Leading end-to-end digital growth strategies for industrial and hospitality business units. Integrated GenAI workflows for strategic research and automated content creation while developing centralized Power BI dashboards for executive-level campaign attribution and ROI tracking.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">GenAI Integration</span>
-                            <span class="tag">Power BI Dashboards</span>
-                            <span class="tag">B2B Strategy</span>
-                            <span class="tag">Lead Generation</span>
-                        </div>
-                        <a href="https://daikiaxis.in/" target="_blank" class="project-link">View Website →</a>
-                    </div>
-                </div>
-
-                <!-- GYK Marketers -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-category">Agency Leadership</span>
-                        <h3>GYK Marketers</h3>
-                        <p class="project-role">Senior Marketing Manager | Jan 2025 – May 2025</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Orchestrated integrated digital campaigns across SEO, PR, and social media for diverse client portfolio. Led cross-functional team of 5+ members ensuring timely execution and budget adherence for large-scale growth initiatives.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Campaign Management</span>
-                            <span class="tag">Team Leadership</span>
-                            <span class="tag">Client Relations</span>
-                            <span class="tag">Budget Management</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ColorTouch - Main Agency Role -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-category">Digital Marketing Agency</span>
-                        <h3>ColorTouch India</h3>
-                        <p class="project-role">Senior Manager – Social Media & SEO | Oct 2023 – Dec 2024</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            <strong>Agency Role:</strong> Managed complete digital marketing operations for 10+ diverse clients across jewelry, hospitality, travel, and technology sectors. Orchestrated end-to-end marketing lifecycle including social media strategy, SEO optimization, website performance enhancement, content direction for design teams, campaign execution, analytics tracking, and comprehensive monthly client reporting.
-                        </p>
-                        <p class="project-description">
-                            Achieved 35% organic engagement growth and 20% CPC optimization through data-driven strategies and rigorous A/B testing across all client accounts.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">10+ Client Management</span>
-                            <span class="tag">SEO & Website Optimization</span>
-                            <span class="tag">Social Media Strategy</span>
-                            <span class="tag">Analytics & Reporting</span>
-                            <span class="tag">Content Direction</span>
-                            <span class="tag">Campaign Execution</span>
-                            <span class="tag">Team Coordination</span>
-                        </div>
-                        <a href="https://colortouchindia.com/" target="_blank" class="project-link">View Agency Website →</a>
-                        
-                        <div class="client-list">
-                            <h4>Clients Managed at ColorTouch:</h4>
-                            <ul>
-                                <li>GoaPlans (Luxury Villas & Travel)</li>
-                                <li>Dhaanvi Jewellers (E-commerce)</li>
-                                <li>Shri Banaras Swarna Kala Kendra</li>
-                                <li>Radha Vallabh Jewellers</li>
-                                <li>Banaras Swarna Kala Kendra LLP</li>
-                                <li>MSM Computers (Technology)</li>
-                                <li>Dinner Cruise Party (Hospitality)</li>
-                                <li>All India Tour & Travels</li>
-                                <li>Villa in Goa (Real Estate)</li>
-                                <li>ColorTouch (Agency Marketing)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Featured Client Projects from ColorTouch -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-category">Client Project - Hospitality</span>
-                        <h3>GoaPlans</h3>
-                        <p class="project-role">Digital Marketing Manager (via ColorTouch) | 2023-2024</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Developed and executed comprehensive digital marketing strategy for luxury villa rentals and travel experiences in Goa. Implemented targeted social media campaigns, technical SEO optimization, and performance marketing to drive bookings and brand awareness in competitive hospitality market.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Travel Marketing</span>
-                            <span class="tag">Social Media</span>
-                            <span class="tag">SEO</span>
-                            <span class="tag">Conversion Optimization</span>
-                        </div>
-                        <a href="https://goaplans.com/" target="_blank" class="project-link">View Website →</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-category">Client Project - Luxury E-commerce</span>
-                        <h3>Dhaanvi Jewellers</h3>
-                        <p class="project-role">Digital Strategist (via ColorTouch) | 2023-2024</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Crafted premium digital presence for luxury jewelry brand combining social media storytelling with performance marketing. Managed brand positioning, content strategy, and paid campaigns to reach high-net-worth customers while maintaining brand luxury appeal.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Luxury Branding</span>
-                            <span class="tag">E-commerce Strategy</span>
-                            <span class="tag">Content Marketing</span>
-                            <span class="tag">Paid Advertising</span>
-                        </div>
-                        <a href="https://dhaanvijewellers.com/" target="_blank" class="project-link">View Website →</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <span class="project-category">Client Project - Jewelry Retail</span>
-                        <h3>Heritage Jewelry Brands</h3>
-                        <p class="project-role">Social Media & SEO Manager (via ColorTouch) | 2023-2024</p>
-                    </div>
-                    <div class="project-body">
-                        <p class="project-description">
-                            Managed digital marketing for multiple traditional jewelry retailers including Shri Banaras Swarna Kala Kendra, Radha Vallabh Jewellers, and Banaras Swarna Kala Kendra LLP. Developed cohesive social media presence, local SEO strategies, and content marketing to drive foot traffic and online inquiries.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Local SEO</span>
-                            <span class="tag">Social Media</span>
-                            <span class="tag">Multi-Brand Management</span>
-                            <span class="tag">Traditional Retail</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="stat">
+          <div class="stat-num">821K+</div>
+          <div class="stat-label">Campaign Reach</div>
         </div>
-    </section>
+      </div>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-teal">Get In Touch</a>
+        <a href="https://linkedin.com/in/neha-jalendra-740121287" target="_blank" class="btn-outline-white">LinkedIn Profile</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <h2>Let's Create Digital Success Together</h2>
-        <p>Open to exciting opportunities in digital marketing, performance marketing, and AI-driven growth strategies</p>
-        <div class="cta-buttons">
-            <a href="mailto:nehajalindra638@gmail.com" class="btn btn-primary">Get In Touch</a>
-            <a href="https://linkedin.com/in/neha-jalendra-740121287" target="_blank" class="btn btn-secondary">View LinkedIn</a>
-        </div>
-    </section>
+  <!-- EXPERTISE -->
+  <section class="expertise" id="expertise">
+    <div class="sec-label"><div class="sec-label-line"></div><span>What I Do</span></div>
+    <div class="sec-title">Core Expertise</div>
+    <div class="expertise-grid">
+      <div class="expertise-card">
+        <div class="expertise-icon">🤖</div>
+        <h3>GenAI & Automation</h3>
+        <p>Microsoft Copilot certified. Engineered AI-integrated workflows that reduced operational costs by 30% and accelerated content production — applying generative AI to marketing research, strategy, and execution.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">📊</div>
+        <h3>Analytics & Reporting</h3>
+        <p>Expert in Power BI, GA4, and platform-native tools. I don't just pull reports — I build dashboards that tell stories, giving leadership real-time visibility into what's driving ROI and what isn't.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">🎯</div>
+        <h3>Performance Marketing</h3>
+        <p>Data-backed Google Ads and Meta strategies with a track record of 20% CPC reduction and 35% organic growth. Every campaign is built on audience insight, tested relentlessly, and optimised continuously.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="expertise-icon">🌏</div>
+        <h3>Cross-Border Campaigns</h3>
+        <p>Planned and executed multi-phase paid social campaigns across Asian markets for Daiki Axis Indonesia — delivering 821K+ reach and 1M+ impressions within a lean USD 415 budget at $0.38 CPM.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="social-links">
-            <a href="mailto:nehajalindra638@gmail.com" title="Email">📧</a>
-            <a href="https://linkedin.com/in/neha-jalendra-740121287" target="_blank" title="LinkedIn">💼</a>
-            <a href="tel:+917011688097" title="Phone">📱</a>
+  <!-- EXPERIENCE -->
+  <section class="experience" id="experience">
+    <div class="sec-label"><div class="sec-label-line"></div><span>Where I've Worked</span></div>
+    <div class="sec-title">Professional Experience</div>
+
+    <!-- Daiki Axis -->
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-type-badge">MNC · Japan Subsidiary</span>
+        <a href="https://daikiaxis.in/" target="_blank" class="exp-link">Visit Website →</a>
+      </div>
+      <div class="exp-company">Daiki Axis India</div>
+      <div class="exp-role">Digital Growth Strategist</div>
+      <div class="exp-period">May 2025 – Present · 1 year · Faridabad, Haryana</div>
+      <div class="exp-divider"></div>
+      <div class="exp-story">
+        As the Person In Charge (PIC) for Daiki Axis India's digital marketing, I operate at the intersection of B2B strategy and AI-powered execution — building systems that give leadership real-time visibility while also collaborating with country teams across Asia to deliver high-impact campaigns.
+      </div>
+      <div class="exp-highlights">
+        <h5>Key Contributions</h5>
+        <div class="exp-highlight-item">
+          <span class="exp-highlight-icon">▸</span>
+          <span>Built centralised Power BI dashboards providing C-suite with real-time campaign attribution and ROI visibility — reducing reporting turnaround time by 40%, so leadership spends less time waiting for data and more time acting on it.</span>
         </div>
-        <p>© 2026 Neha | Digital Growth & AI Strategist</p>
-        <p style="margin-top: 10px; font-size: 0.9rem;">Faridabad, Haryana | Available for Remote & Hybrid Opportunities</p>
-    </footer>
+        <div class="exp-highlight-item">
+          <span class="exp-highlight-icon">▸</span>
+          <span>Designed Google Ads campaign frameworks and B2B performance marketing strategies for industrial and hospitality business units — structuring campaigns that align with long B2B sales cycles and high-intent audiences.</span>
+        </div>
+        <div class="exp-highlight-item">
+          <span class="exp-highlight-icon">▸</span>
+          <span>Deployed Microsoft Copilot-driven workflows for strategic research and content planning, reducing campaign ideation cycles by 30% — embedding AI into everyday marketing operations, not just as a tool but as a workflow multiplier.</span>
+        </div>
+        <div class="exp-highlight-item">
+          <span class="exp-highlight-icon">▸</span>
+          <span>Conducted systematic digital audits of agency-managed SEO, website performance, and social media — presenting actionable findings and strategic recommendations directly to senior leadership.</span>
+        </div>
+      </div>
+
+      <!-- Indonesia Campaign -->
+      <div class="campaign-card">
+        <div class="campaign-card-header">
+          <span class="campaign-badge">🌏 Cross-Border Campaign — Indonesia</span>
+        </div>
+        <h4>Daiki Axis Indonesia · Paid Social Campaign</h4>
+        <p>2-phase campaign across Facebook & Instagram · Total Budget: USD 415 · May 2025</p>
+        <div class="campaign-metrics">
+          <div class="c-metric">
+            <div class="c-metric-num">821K+</div>
+            <div class="c-metric-label">Reach</div>
+          </div>
+          <div class="c-metric">
+            <div class="c-metric-num">1M+</div>
+            <div class="c-metric-label">Impressions</div>
+          </div>
+          <div class="c-metric">
+            <div class="c-metric-num">1M+</div>
+            <div class="c-metric-label">Video Views</div>
+          </div>
+          <div class="c-metric">
+            <div class="c-metric-num">$0.38</div>
+            <div class="c-metric-label">CPM Achieved</div>
+          </div>
+        </div>
+        <div class="campaign-note">
+          Industry average CPM in Indonesia: $0.50–$1.50 · Achieved <strong>$0.38 CPM</strong> — delivering above-benchmark efficiency within a lean budget
+        </div>
+      </div>
+
+      <div class="exp-tags">
+        <span class="exp-tag">B2B Strategy</span>
+        <span class="exp-tag">Power BI</span>
+        <span class="exp-tag">Google Ads</span>
+        <span class="exp-tag">GenAI Integration</span>
+        <span class="exp-tag">Cross-Border Campaigns</span>
+        <span class="exp-tag">Microsoft Copilot</span>
+      </div>
+    </div>
+
+    <!-- GYK -->
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-type-badge">Digital Agency</span>
+      </div>
+      <div class="exp-company">GYK Marketers</div>
+      <div class="exp-role">Senior Marketing Manager</div>
+      <div class="exp-period">Jan 2025 – May 2025 · 5 months</div>
+      <div class="exp-divider"></div>
+      <div class="exp-story">
+        A fast-paced agency environment that sharpened my ability to lead cross-functional teams under tight deadlines — managing SEO, PR, paid media, and social media simultaneously across a diverse client portfolio.
+      </div>
+      <div class="exp-highlights">
+        <h5>Key Contributions</h5>
+        <div class="exp-highlight-item">
+          <span class="exp-highlight-icon">▸</span>
+          <span>Led cross-functional team of 5+ members across SEO, PR, social media, and paid advertising — ensuring integrated campaign delivery with consistent brand voice and measurable outcomes.</span>
+        </div>
+        <div class="exp-highlight-item">
+          <span class="exp-highlight-icon">▸</span>
+          <span>Developed audience targeting frameworks and performance tracking systems that enabled consistent data-driven campaign optimisation across all client accounts.</span>
+        </div>
+      </div>
+      <div class="exp-tags">
+        <span class="exp-tag">Team Leadership</span>
+        <span class="exp-tag">Integrated Campaigns</span>
+        <span class="exp-tag">SEO</span>
+        <span class="exp-tag">Paid Media</span>
+        <span class="exp-tag">PR</span>
+      </div>
+    </div>
+
+    <!-- ColorTouch -->
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-type-badge">Full-Service Agency</span>
+        <a href="https://colortouchindia.com/" target="_blank" class="exp-link">Visit Website →</a>
+      </div>
+      <div class="exp-company">ColorTouch India</div>
+      <div class="exp-role">Senior Digital Marketing Manager</div>
+      <div class="exp-period">Oct 2023 – Dec 2024 · 1 year 3 months</div>
+      <div class="exp-divider"></div>
+      <div class="exp-story">
+        My foundation in performance marketing was built here — managing 10+ concurrent client accounts across jewellery, hospitality, travel, and technology. Every decision was data-led, every campaign was built with a clear commercial objective, and every client got a tailored strategy — not a template.
+      </div>
+      <div class="exp-highlights">
+        <h5>Key Contributions</h5>
+        <div class="exp-highlight-item">
+          <span class="exp-highlight-icon">▸</span>
+          <span>Managed end-to-end digital marketing — social media strategy, SEO, website performance, content direction, paid campaigns, and monthly analytics reporting — for 10+ concurrent accounts simultaneously.</span>
+        </div>
+        <div class="exp-highlight-item">
+          <span class="exp-highlight-icon">▸</span>
+          <span>Reduced overall CPC by 20% through structured A/B testing, audience segmentation, and continuous targeting refinement across Google Ads and Meta platforms.</span>
+        </div>
+        <div class="exp-highlight-item">
+          <span class="exp-highlight-icon">▸</span>
+          <span>Scaled organic engagement by 35% within 12 months through keyword strategy, on-page SEO, and technical audits; delivered monthly GA4-based analytics reports to C-level stakeholders.</span>
+        </div>
+      </div>
+
+      <!-- Client List -->
+      <div style="margin: 20px 0;">
+        <h5 style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);margin-bottom:12px;">Clients Managed</h5>
+        <div class="client-grid">
+          <div class="client-card">
+            <div class="client-name">GoaPlans</div>
+            <div class="client-sector">Luxury Travel & Villas</div>
+          </div>
+          <div class="client-card">
+            <div class="client-name">Dhaanvi Jewellers</div>
+            <div class="client-sector">Luxury E-commerce</div>
+          </div>
+          <div class="client-card">
+            <div class="client-name">MSM Computers</div>
+            <div class="client-sector">Technology</div>
+          </div>
+          <div class="client-card">
+            <div class="client-name">Dinner Cruise Party</div>
+            <div class="client-sector">Hospitality & Events</div>
+          </div>
+          <div class="client-card">
+            <div class="client-name">All India Tour & Travels</div>
+            <div class="client-sector">Travel & Tourism</div>
+          </div>
+          <div class="client-card">
+            <div class="client-name">Shri Banaras Swarna Kala Kendra</div>
+            <div class="client-sector">Heritage Jewellery</div>
+          </div>
+          <div class="client-card">
+            <div class="client-name">Radha Vallabh Jewellers</div>
+            <div class="client-sector">Jewellery Retail</div>
+          </div>
+          <div class="client-card">
+            <div class="client-name">Villa in Goa</div>
+            <div class="client-sector">Real Estate & Hospitality</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-tags">
+        <span class="exp-tag">Multi-Client Management</span>
+        <span class="exp-tag">Google Ads</span>
+        <span class="exp-tag">Meta Ads</span>
+        <span class="exp-tag">SEO</span>
+        <span class="exp-tag">GA4</span>
+        <span class="exp-tag">Content Direction</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="certifications" id="certifications">
+    <div class="sec-label"><div class="sec-label-line"></div><span>Credentials</span></div>
+    <div class="sec-title">Certifications</div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-logo" style="background:white;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+</svg></div>
+        <div class="cert-info">
+          <div class="cert-name">Google Analytics Certification (GA4)</div>
+          <div class="cert-issuer">Google Skillshop</div>
+          
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo" style="background:white;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+</svg></div>
+        <div class="cert-info">
+          <div class="cert-name">Google Ads Search Certification</div>
+          <div class="cert-issuer">Google Skillshop</div>
+          
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo" style="background:white;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+</svg></div>
+        <div class="cert-info">
+          <div class="cert-name">Google Ads Display Certification</div>
+          <div class="cert-issuer">Google Skillshop</div>
+          
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo" style="background:white;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+</svg></div>
+        <div class="cert-info">
+          <div class="cert-name">Google Ads Video Certification</div>
+          <div class="cert-issuer">Google Skillshop</div>
+          
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo" style="background:white;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+</svg></div>
+        <div class="cert-info">
+          <div class="cert-name">Google Ads Measurement Certification</div>
+          <div class="cert-issuer">Google Skillshop</div>
+          
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo" style="background:white;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+</svg></div>
+        <div class="cert-info">
+          <div class="cert-name">Google Ads Creative Certification</div>
+          <div class="cert-issuer">Google Skillshop</div>
+          
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo" style="background:white;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+</svg></div>
+        <div class="cert-info">
+          <div class="cert-name">Google Ads Apps Certification</div>
+          <div class="cert-issuer">Google Skillshop</div>
+          
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo" style="background:white;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+</svg></div>
+        <div class="cert-info">
+          <div class="cert-name">AI-Powered Performance Ads Certification</div>
+          <div class="cert-issuer">Google Skillshop</div>
+          
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo" style="background:white;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+</svg></div>
+        <div class="cert-info">
+          <div class="cert-name">AI-Powered Shopping Ads Certification</div>
+          <div class="cert-issuer">Google Skillshop</div>
+          
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo" style="background:white;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+</svg></div>
+        <div class="cert-info">
+          <div class="cert-name">Grow Offline Sales Certification</div>
+          <div class="cert-issuer">Google Skillshop</div>
+          
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo" style="background:white;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+</svg></div>
+        <div class="cert-info">
+          <div class="cert-name">Get to Know Advertising with Google</div>
+          <div class="cert-issuer">Google Skillshop</div>
+          
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo" style="background:white;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+</svg></div>
+        <div class="cert-info">
+          <div class="cert-name">Google Data & Analytics Solutions</div>
+          <div class="cert-issuer">Google Partner Program</div>
+          
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo" style="background:white;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+</svg></div>
+        <div class="cert-info">
+          <div class="cert-name">Manage GA4 Data & Learn to Read Reports</div>
+          <div class="cert-issuer">Google Skillshop</div>
+          
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo" style="background:white;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+</svg></div>
+        <div class="cert-info">
+          <div class="cert-name">Dive Deeper Into GA4 Data & Reports</div>
+          <div class="cert-issuer">Google Skillshop</div>
+          
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo" style="background:white;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+</svg></div>
+        <div class="cert-info">
+          <div class="cert-name">Get Started using Google Analytics (GA4)</div>
+          <div class="cert-issuer">Google Skillshop</div>
+          
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo ms" style="background:white;display:flex;align-items:center;justify-content:center;border:1px solid #e8eef5;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21" width="22" height="22">
+  <rect x="1" y="1" width="9" height="9" fill="#f25022"/>
+  <rect x="11" y="1" width="9" height="9" fill="#7fba00"/>
+  <rect x="1" y="11" width="9" height="9" fill="#00a4ef"/>
+  <rect x="11" y="11" width="9" height="9" fill="#ffb900"/>
+</svg></div>
+        <div class="cert-info">
+          <div class="cert-name">Microsoft Copilot for Marketing</div>
+          <div class="cert-issuer">Microsoft · Certified Professional</div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+    <div class="sec-label"><div class="sec-label-line"></div><span>Tools & Skills</span></div>
+    <div class="sec-title">Technical Expertise</div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Advertising Platforms</h4>
+        <ul class="skill-list">
+          <li>Google Ads — Search, Display, Video</li>
+          <li>Performance Max Campaigns</li>
+          <li>Meta Business Suite</li>
+          <li>LinkedIn Campaign Manager</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Analytics & Reporting</h4>
+        <ul class="skill-list">
+          <li>Google Analytics 4 (GA4)</li>
+          <li>Power BI (Advanced)</li>
+          <li>Google Search Console</li>
+          <li>SEMrush · Data Studio</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>AI & Automation</h4>
+        <ul class="skill-list">
+          <li>Microsoft Copilot (Certified)</li>
+          <li>ChatGPT-4o · Midjourney</li>
+          <li>Google AI-Powered Ads</li>
+          <li>Prompt Engineering</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>SEO & Content</h4>
+        <ul class="skill-list">
+          <li>Technical SEO & On-Page Optimisation</li>
+          <li>Keyword Strategy & Research</li>
+          <li>Website Performance Audit</li>
+          <li>Content Direction & Planning</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="sec-label"><div class="sec-label-line"></div><span>Let's Connect</span><div class="sec-label-line"></div></div>
+    <div class="sec-title">Get In Touch</div>
+    <p class="contact-desc">Feel free to reach out for collaborations, projects, or professional conversations around digital marketing and AI-driven growth.</p>
+    <div class="contact-links">
+      <a href="mailto:nehajalindra638@gmail.com" class="btn-teal">Send Email</a>
+      <a href="https://linkedin.com/in/neha-jalendra-740121287" target="_blank" class="btn-outline-teal">LinkedIn</a>
+      <a href="tel:+917011688097" class="btn-outline-teal">+91 70116 88097</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Neha &nbsp;·&nbsp; Digital Growth & AI Strategist &nbsp;·&nbsp; Faridabad, Haryana
+  </footer>
+
 </body>
 </html>
